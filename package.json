@@ -1,10 +1,30 @@
 {
   "name": "task-app",
   "version": "0.0.0",
+  "main": "src",
+  "keywords": [
+    "feathers"
+  ],
+  "author": {
+    "name": "",
+    "email": ""
+  },
+  "contributors": [],
+  "bugs": {},
+  "directories": {
+    "lib": "src",
+    "test": "test/"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "concurrently --kill-others \"npm run serve-api\" \"npm run serve\"",
+    "serve": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
+    "serve-api": "nodemon src/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -22,7 +42,20 @@
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "cors": "^2.8.5",
+    "feathers": "^2.2.4",
+    "feathers-configuration": "^0.4.2",
+    "feathers-errors": "^2.9.2",
+    "feathers-hooks": "^2.1.2",
+    "feathers-hooks-common": "^4.20.2",
+    "feathers-rest": "^1.8.1",
+    "feathers-socketio": "^2.0.1",
+    "helmet": "^3.15.0",
+    "serve-favicon": "^2.5.0",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.12.0",
@@ -43,6 +76,10 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.2.2"
+    "typescript": "~3.2.2",
+    "eslint": "^5.13.0",
+    "mocha": "^5.2.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
   }
 }
